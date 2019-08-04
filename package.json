@@ -1,0 +1,22 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "Mean app",
+  "main": "index.js",
+  "dependencies": {
+    "connect": "^3.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "react",
+    "angular",
+    "node",
+    "express"
+  ],
+  "author": "SamuelMuloki",
+  "license": "MIT"
+}
