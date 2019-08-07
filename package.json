@@ -6,7 +6,9 @@
   "dependencies": {
     "connect": "^3.7.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
   "scripts": {
     "test": "test",
     "start": "node server.js"
