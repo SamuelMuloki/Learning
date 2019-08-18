@@ -5,6 +5,9 @@ module.exports = function(app) {
         .post(users.create)
         .get(users.list);
 
-    app.route('/users/:userId').get(users.read);
+    app.route('/users/:userId')
+        .get(users.read)
+        .put(users.update);
+
     app.param('userId', users.userByID);
 }
