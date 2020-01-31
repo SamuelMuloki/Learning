@@ -5,7 +5,11 @@ var userSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String,
-    username: String
+    username: String,
+    created: {
+        type: Date,
+        default: Date.now,
+    }
 });
 
 mongoose.model('User', userSchema);
