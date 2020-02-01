@@ -13,11 +13,13 @@
     "express-session": "^1.16.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.6.9",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2"
   },
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "react",
