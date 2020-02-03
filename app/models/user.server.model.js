@@ -16,13 +16,23 @@ var userSchema = new Schema({
     firstName: String,
     lastName: String,
     email: {
-        type: String
+        type: String,
+        match: /.+\@.+\..+/
     },
     username: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
-    password: String,
+    password: {
+        type: String,
+        validate: [
+            function(password) {
+                return password.length >= 6;
+            },
+            'Passwords should be longer'
+        ]
+    },
     created: {
         type: Date,
         default: Date.now,
@@ -31,6 +41,10 @@ var userSchema = new Schema({
         type: String,
         set: websiteURl,
         get: websiteURl
+    },
+    role: {
+        type: String,
+        enum: ['Admin', 'Owner', 'User']
     }
 });
 
@@ -41,6 +55,16 @@ userSchema.virtual('fullName').get(function () {
     this.firstName = splitName[0] || '';
     this.lastName = splitName[1] || '';
 });
+
+// custom static methods
+userSchema.statics.findOneByUsername = function(username, callback) {
+    this.findOne({ userName: new RegExp(username, 'i')}, callback);
+};
+
+// custom instance methods
+userSchema.methods.authenticate = function(password) {
+    return this.password === password;
+};
 
 // userSchema.set('toJSON', { getters: true, virtuals: true });
 
