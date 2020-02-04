@@ -58,7 +58,7 @@ userSchema.virtual('fullName').get(function () {
 
 // custom static methods
 userSchema.statics.findOneByUsername = function(username, callback) {
-    this.findOne({ userName: new RegExp(username, 'i')}, callback);
+    this.findOne({ username: new RegExp(username, 'i')}, callback);
 };
 
 // custom instance methods
